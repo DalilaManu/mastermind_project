@@ -372,3 +372,5 @@ settings.json
 
 #Pylint
 .pylintrc
+test_mutacion.py
+--- a/file:///c%3A/Users/Admin/Documents/mastermind_project/mastermind_project/tests/test_mutacion.py
