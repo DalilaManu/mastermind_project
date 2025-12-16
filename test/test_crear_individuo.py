@@ -1,13 +1,13 @@
 
 
-from src.mastermind import crear_individuo, TAMANHO_GENES, VALORES_POSIBLES
+from src.mastermind import crear_individuo, GENES, ALELOS
 import pytest
 
 
 def test_crear_individuo():        
-    individuo = crear_individuo(TAMANHO_GENES, VALORES_POSIBLES)   
-    assert len(individuo) == TAMANHO_GENES
+    individuo = crear_individuo(GENES, ALELOS)   
+    assert len(individuo) == GENES
     for color in individuo:
-        assert color in VALORES_POSIBLES        
+        assert color in ALELOS        
 
 
