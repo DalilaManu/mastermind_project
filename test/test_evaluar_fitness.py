@@ -1,4 +1,4 @@
-from src.mastermind import  GENES, ALELOS, evaluar_fitness
+from src.mastermind import  GENES, VALORES_POSIBLES, evaluar_fitness
 import pytest
 
 def test_evaluar_fitness():
