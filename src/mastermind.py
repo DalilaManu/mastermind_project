@@ -2,14 +2,14 @@ import random
 
 GENES = 4
 VALORES_POSIBLES = ['AMARILLO', 'AZUL', 'ROJO', 'VERDE', 'NARANJA', 'MORADO']
-POBLACION = 20
+POBLACION = 50
 TASA_MUTACION = 0.01
 
 
 
 def crear_codigo_secreto(genes, valores_posibles): 
     codigo_secreto = []
-    for i in range(genes):
+    for i in range(genes): # 0 a 3 
         codigo_secreto.append(random.choice(valores_posibles))
     return codigo_secreto
 
@@ -38,19 +38,19 @@ def evaluar_fitness(individuo, codigo_secreto):
 
 def seleccionar_padres(poblacion, codigo_secreto):
     # Calcular el fitness de cada individuo
-    fitness_poblacion = []
+    fitness_poblacion = [] 
     for individuo in poblacion:
         fitness = evaluar_fitness(individuo, codigo_secreto)
-        fitness_poblacion.append((individuo, fitness))
-        mejor_fitness = max(fitness for individuo, fitness in fitness_poblacion)
+        fitness_poblacion.append((individuo, fitness)) 
+        mejor_fitness = max(fitness for individuo, fitness in fitness_poblacion) 
      # Seleccionar los individuos con el mejor fitness
-    padres = [individuo for individuo, fitness in fitness_poblacion if fitness == mejor_fitness]
+    padres = [individuo for individuo, fitness in fitness_poblacion if fitness == mejor_fitness] 
     return padres
-
-def cruzar_padres(padres, genes=GENES):
-    padre1 = random.choice(padres)
-    padre2 = random.choice(padres)
-    punto_cruce = random.randint(1, genes - 1)
+  
+def cruzar_padres(padres, genes=GENES): 
+    padre1 = random.choice(padres) 
+    padre2 = random.choice(padres) 
+    punto_cruce = random.randint(1, genes - 1) 
     hijo = padre1[:punto_cruce] + padre2[punto_cruce:]
     return hijo
 
