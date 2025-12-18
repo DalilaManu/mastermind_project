@@ -47,6 +47,22 @@ def seleccionar_padres(poblacion, codigo_secreto):
     padres = [individuo for individuo, fitness in fitness_poblacion if fitness == mejor_fitness]
     return padres
 
+def cruzar_padres(padres, genes=GENES):
+    padre1 = random.choice(padres)
+    padre2 = random.choice(padres)
+    punto_cruce = random.randint(1, genes - 1)
+    hijo = padre1[:punto_cruce] + padre2[punto_cruce:]
+    return hijo
+
+def mutar_individuo(individuo, tasa_mutacion=TASA_MUTACION,
+valores_posibles=VALORES_POSIBLES):
+    for i in range(len(individuo)):
+        if random.random() < tasa_mutacion:
+            individuo[i] = random.choice(valores_posibles)
+    return individuo
+
+
+
 
 
 
