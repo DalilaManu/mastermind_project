@@ -2,20 +2,20 @@ import random
 
 GENES = 4
 VALORES_POSIBLES = ['AMARILLO', 'AZUL', 'ROJO', 'VERDE', 'NARANJA', 'MORADO']
-POBLACION = 50
+POBLACION = 20
+TASA_MUTACION = 0.01
 
 
-def crear_codigo_secreto(genes, alelos): 
+
+def crear_codigo_secreto(genes, valores_posibles): 
     codigo_secreto = []
     for i in range(genes):
-        codigo_secreto.append(random.choice(alelos))
-    return codigo_secreto 
-print(crear_codigo_secreto(GENES, VALORES_POSIBLES))
+        codigo_secreto.append(random.choice(valores_posibles))
+    return codigo_secreto
 
 
-def crear_individuo(genes, alelos):
-    return [random.choice(alelos) for i in range(genes)]
-print(crear_individuo(GENES, VALORES_POSIBLES)) 
+def crear_individuo(genes, valores_posibles):
+    return [random.choice(valores_posibles) for i in range(genes)] 
 
 
 
@@ -23,7 +23,6 @@ print(crear_individuo(GENES, VALORES_POSIBLES))
 
 def crear_poblacion(poblacion, genes=GENES, alelos=VALORES_POSIBLES): 
     return [crear_individuo(genes, alelos) for i in range(poblacion)] 
-print(crear_poblacion(POBLACION)) 
 
 
 
@@ -35,10 +34,26 @@ def evaluar_fitness(individuo, codigo_secreto):
         if individuo[i] == codigo_secreto[i]:
             fitness += 1
     return fitness
-print(evaluar_fitness(['ROJO', 'AZUL', 'VERDE', 'AMARILLO'], ['ROJO', 'NARANJA', 'VERDE', 'MORADO'])) #ejemplo de uso
+
+
+def seleccionar_padres(poblacion, codigo_secreto):
+    # Calcular el fitness de cada individuo
+    fitness_poblacion = []
+    for individuo in poblacion:
+        fitness = evaluar_fitness(individuo, codigo_secreto)
+        fitness_poblacion.append((individuo, fitness))
+        mejor_fitness = max(fitness for individuo, fitness in fitness_poblacion)
+     # Seleccionar los individuos con el mejor fitness
+    padres = [individuo for individuo, fitness in fitness_poblacion if fitness == mejor_fitness]
+    return padres
 
 
 
+
+
+
+
+ 
 
 
 
