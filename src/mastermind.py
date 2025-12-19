@@ -21,7 +21,7 @@ def crear_individuo(genes, valores_posibles):
 
 
 
-def crear_poblacion(poblacion, genes=GENES, alelos=VALORES_POSIBLES): 
+def crear_poblacion(poblacion=POBLACION, genes=GENES, alelos=VALORES_POSIBLES): 
     return [crear_individuo(genes, alelos) for i in range(poblacion)] 
 
 
