@@ -1,13 +1,7 @@
-import random
+import random 
+from src.constantes_mastermind import POBLACION, GENES, VALORES_POSIBLES, TASA_MUTACION
 
-GENES = 4
-VALORES_POSIBLES = ['AMARILLO', 'AZUL', 'ROJO', 'VERDE', 'NARANJA', 'MORADO']
-POBLACION = 50
-TASA_MUTACION = 0.01
-
-
-
-def crear_codigo_secreto(genes, valores_posibles): 
+def crear_codigo_secreto(genes=GENES, valores_posibles=VALORES_POSIBLES): 
     codigo_secreto = []
     for i in range(genes): # 0 a 3 
         codigo_secreto.append(random.choice(valores_posibles))
@@ -30,7 +24,7 @@ def crear_poblacion(poblacion=POBLACION, genes=GENES, alelos=VALORES_POSIBLES):
 
 def evaluar_fitness(individuo, codigo_secreto):
     fitness = 0
-    for i in range(GENES):
+    for i in range(len(codigo_secreto)):
         if individuo[i] == codigo_secreto[i]:
             fitness += 1
     return fitness
@@ -38,13 +32,16 @@ def evaluar_fitness(individuo, codigo_secreto):
 
 def seleccionar_padres(poblacion, codigo_secreto):
     # Calcular el fitness de cada individuo
-    fitness_poblacion = [] 
+    fitness_poblacion = []
     for individuo in poblacion:
         fitness = evaluar_fitness(individuo, codigo_secreto)
         fitness_poblacion.append((individuo, fitness)) 
-        mejor_fitness = max(fitness for individuo, fitness in fitness_poblacion) 
+    mejor_fitness = max(fitness for individuo, fitness in fitness_poblacion)
      # Seleccionar los individuos con el mejor fitness
-    padres = [individuo for individuo, fitness in fitness_poblacion if fitness == mejor_fitness] 
+    padres = [
+        individuo 
+        for individuo, fitness in fitness_poblacion
+        if fitness == mejor_fitness] 
     return padres
   
 def cruzar_padres(padres, genes=GENES): 
@@ -61,17 +58,8 @@ valores_posibles=VALORES_POSIBLES):
             individuo[i] = random.choice(valores_posibles)
     return individuo
 
-
-
-
-
-
-
-
-
- 
-
-
+def es_solucion(individuo, codigo_secreto):
+    return evaluar_fitness(individuo, codigo_secreto) == len(codigo_secreto)
 
 
 
