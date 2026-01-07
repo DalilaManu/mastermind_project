@@ -79,6 +79,7 @@ pip install -r requirements.txt
 - Es necesario contar con Python 3.13 o superior.
 - Conocimientos básicos de terminal y entorno virtual.  
 - Git para control de versiones.
+- Archivos importantes en el repositorio: ```.gitignore```, ```requirements.txt``` y ```__init__.py``` dentro de carpetas de módulos para que Python reconozca paquetes.
 
 # Instalación
 - La instalación se realiza a través de pip mediante el archivo requirements.txt, que incluye todas las dependencias necesarias para ejecutar los tests y el juego.
