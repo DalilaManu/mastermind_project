@@ -1,4 +1,4 @@
-from src.mastermind import  GENES, VALORES_POSIBLES, evaluar_fitness
+from src.genetico import  GENES, VALORES_POSIBLES, evaluar_fitness
 import pytest
 
 def test_evaluar_fitness():

@@ -1,5 +1,5 @@
 
-from src.mastermind import cruzar_padres
+from src.genetico import cruzar_padres
 
 def test_cruzar_padres():
     padres = [

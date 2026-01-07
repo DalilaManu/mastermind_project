@@ -1,7 +1,7 @@
 
 
 
-from src.mastermind import crear_codigo_secreto, GENES, VALORES_POSIBLES
+from src.genetico import crear_codigo_secreto, GENES, VALORES_POSIBLES
 import pytest
 
 

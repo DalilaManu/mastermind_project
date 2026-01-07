@@ -1,6 +1,6 @@
 
 
-from src.mastermind import crear_individuo, GENES, VALORES_POSIBLES
+from src.genetico import crear_individuo, GENES, VALORES_POSIBLES
 import pytest
 
 

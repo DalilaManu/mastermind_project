@@ -1,5 +1,5 @@
 
-from src.mastermind import seleccionar_padres, crear_individuo
+from src.genetico import seleccionar_padres, crear_individuo
 import pytest
 
 
