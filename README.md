@@ -1,37 +1,270 @@
 # mastermind_project
+Juego Mastermind con Algoritmo Genético
 
-Juego de Mastermind
+___
 
 
-El Mastermind es un juego de habilidad y lógica para dos jugadores, en el que uno crea un código secreto de colores y el otro intenta descifrarlo en el menor número de intentos posibles.
+
+# Tabla de contenidos
+
+
+- [Introducción](#introducción)
+- [Manual](#manual)
+- [Prerrequisitos](#prerrequisitos)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Metodología](#metodologia)
+- [Descripción técnica](#descripcion-tecnica)
+- [Requisitos funcionales/no funcionales](#requisitos-funcionalesno-funcionales)
+- [Historias de usuaria](#historias-de-usuaria)
+- [Arquitectura de la aplicación](#arquitectura-de-la-aplicacion)
+- [Diseño](#diseño)
+- [Diagrama de Componentes](#diagrama-de-componentes)
+- [Implementación](#implementacion)
+- [Tecnologías y herramientas utilizadas](#tecnologias-y-herramientas-utilizadas)
+- [Backend](#backend)
+- [Interfaz](#interfaz)
+- [Pruebas](#pruebas)
+- [Cobertura](#cobertura)
+- [Test de unidad](#test-de-unidad)
+- [Test de integración](#test-de-integracion)
+- [Análisis del tiempo invertido](#analisis-del-tiempo-invertido)
+- [Justificación temporal](#justificacion-temporal)
+- [Uso de IA](#uso-de-ia)
+- [Conclusiones](#conclusiones)
+- [Posibles mejoras](#posibles-mejoras)
+- [Dificultades](#dificultades)
+
+
+
+
+
+
+
+## Introducción
+
+Este proyecto es una implementación basica del juego Matermind usando un algorítmo genetico. Se ha desarrollado como práctica del aprendizaje de Python, algoritmos genéticos y control de versiones con Git y algoritmos evolutivos, con el objetivo de demostrar cómo un algoritmo genético puede evolucionar soluciones hasta resolver un código secreto generado aleatoriamente. El proyecto permite visualizar en consola la evolución de la población de individuos y cómo se aproxima a la solución óptima.
+
 
 **Objetivo del Juego**
+- El objetivo es implementar un algoritmo genético capaz de “resolver” o encontrar un código secreto generado aleatoriamente dentro de un número limitado de intentos, mostrando cómo evolucionan las poblaciones de individuos.
 
-El objetivo es ser el jugador que consiga adivinar el código secreto de su oponente en el menor número de jugadas a lo largo de una serie de partidas. 
+# Manual
 
-**Componentes**
+**Instalación**
+- Para ejecutar el proyecto, primero se debe clonar el repositorio e instalar las dependencias en un entorno virtual:
 
-El juego incluye:
-- Un tablero de juego con orificios grandes para las clavijas de código y orificios pequeños para las clavijas de pista.
-- Clavijas de código grandes de varios colores, se puede elegir 6 o 8 pero en este caso decidimos 6 colores.
-- Clavijas de pista pequeñas, en este caso negras y blancas.
-- Un escudo para ocultar el código secreto. 
+1. Clonar el proyecto:
+```bash
+git clone <https://github.com/DalilaManu/mastermind_project.git> 
+```
 
-**Cómo se Juega**
+2. Entrar en la carpeta del proyecto:
+```bash
+cd mastermind_project 
+```
 
-La partida se desarrolla en turnos alternos y los jugadores asumen los roles de "Creador del Código" (Codemaker) y "Descifrador del Código" (Codebreaker). 
+3. Crear entorno virtual (linux):
+```bash
+python3 -m venv .venv
+source .venv/bin/activate 
+```
 
-Creación del Código: El Creador del Código elige una combinación secreta de cuatro clavijas de colores y la oculta tras el escudo. Se pueden repetir colores si se desea.
+4. Instalar dependencias:
+```bash
+pip install -r requirements.txt
+```
 
-Intentos del Descifrador: El Descifrador del Código realiza su primer intento colocando una fila de cuatro clavijas de colores en el tablero.
-Pistas del Creador del Código: Tras cada intento, el Creador del Código proporciona pistas utilizando las clavijas pequeñas:
-Coloca una clavija negra (o del color equivalente) por cada color que sea correcto y esté en la posición correcta.
-Coloca una clavija blanca (o del color equivalente) por cada color que sea correcto pero esté en la posición incorrecta.
-No coloca clavija si el color no está en el código secreto.
+# Prerrequisitos
+- Es necesario contar con Python 3.13 o superior.
+- Conocimientos básicos de terminal y entorno virtual.  
+- Git para control de versiones.
 
-Importante: El orden de las clavijas de pista no indica qué colores específicos son correctos, solo la cantidad de aciertos.
+# Instalación
+- La instalación se realiza a través de pip mediante el archivo requirements.txt, que incluye todas las dependencias necesarias para ejecutar los tests y el juego.
 
-Deducción y Nuevos Intentos: El Descifrador utiliza estas pistas para deducir el código y realiza un nuevo intento en la siguiente fila.
-Fin de la Partida: El juego continúa hasta que el Descifrador acierta el código exacto (indicado por cuatro clavijas negras) o se queda sin intentos. 
+
+# Uso
+**El juego se ejecuta desde la terminal utilizando:**
+```bash
+python main.py
+```
+- El programa generará un código secreto y aplicará un algoritmo genético para encontrarlo en un máximo de intentos. Se mostrará en consola cada intento y si la solución fue encontrada o no.
+- Ejemplo de salida en consola:
+```bash
+Código secreto generado. ¡Comienza el juego!
+Intento 1:
+Intento 2:
+...
+Intento 11:
+¡Solución encontrada! Código secreto: ['ROJO', 'VERDE', 'MORADO', 'AZUL']
+
+```
+
+
+
+# Metodologia
+- Se utilizó un enfoque básico de algoritmo genético:
+
+1. Crear poblácion inicial de indivíduos aleatórios.
+2. Evaluar fitness de cada indivíduo (número de colores correctos en posición correcta).
+3. Seleccionar los individuos con mejor fitness como padres.
+4. Cruzar y mutar para generar nueva población.
+5. Repetir hasta encontrar la solución o alcanzar el límite de intentos.
+- No se utilizaron frameworks externos para la lógica del juego; todo se implementó en Python estándar.
+
+# Descripcón Técnica 
+El proyecto se encuentra en un algoritmo genético simple:
+
+* Población: 50 individuos 
+* Genes: 4 colores por código 
+* Valores Posibles: ["AMARILLO", "AZUL", "ROJO", "VERDE", "NARANJA", "MORADO"]
+* Tasa de mutación: 1%
+* Máximo de intentos: 15 
+- El proyecto se centra en la lógica del algoritmo genético: creación de individuos, evaluación de fitness, selección de padres, cruce, mutación y verificación de la solución.
+
+# Requisitos funcionales/no funcionales 
+El sistema debe ser capaz de generar un código secreto y aplicar un algoritmo genético para resolverlo automáticamente, mostrando la evolución de la población en consola. Los usuarios pueden configurar parámetros del algoritmo, como población, genes, tasa de mutación y número máximo de intentos.
+Entre los requisitos no funcionales se incluyen la modularización del código para facilitar su mantenimiento, la claridad de la salida en consola y la posibilidad de añadir pruebas unitarias sin afectar la lógica central del juego.
+
+# Arquitectura de la aplicación 
+* Separación entre constantes (```constantes_mastermind```) y lógica (```genetico.py``` y ```main.py```).
+
+
+- Patrón similar a MVC: main.py actúa como controlador, genetico.py como modelo, constantes_mastermind.py como fuente de configuración.
+- Comunicación entre módulos mediante parámetros y retornos, evitando dependencias circulares. Esto garantiza cohesión y facilita futuras mejoras.
+
+# Diseño 
+***Diagrama de Componentes***
+```
+           _________________
+          |  main.py       |
+          |  (Controlador) |
+          __________________
+                   |
+                   |
+           ________________
+          | genetico.py    |
+          |  (Modelo)      |
+          __________________
+           ^           ^
+           |           |
+__________________   _________________
+| constantes_    |     | tests/     |
+| mastermind.py  |     | (Validación)|
+| (Configuración)|     _________________
+__________________
+
+
+```
+``` main.py``` controla el flujo del juego y coordina la ejecución de las funciones del algoritmo genético.
+
+```genetico.py``` contiene la lógica principal: creación de población, evaluación de fitness, selección de padres, cruce y mutación.
+
+```constantes_mastermind.py``` define los parámetros del juego (colores, genes, tasa de mutación, etc.) y es utilizado por genetico.py.
+
+```tests/``` contiene pruebas unitarias que verifican la correcta ejecución de cada función del modelo, asegurando la robustez del código.
+
+Las flechas indican el flujo de datos y dependencias: main.py llama al modelo, que depende de la configuración; los tests verifican el comportamiento del modelo de manera independiente.
+
+* Ejecución de tests en consola muestra:
+```bash
+collected 8 items                                                                                                                                                                                        
+
+test\test_crear_codigo_secreto.py .                                                                                                                                                                [ 12%]
+test\test_crear_individuo.py .                                                                                                                                                         [ 25%]
+test\test_cruzar_padres.py .                                                                                                                                                                       [ 37%]     
+test\test_es_solucion.py ..                                                                                                                                                                        [ 62%]     
+test\test_evaluar_fitness.py .                                                                                                                                                                     [ 75%]     
+test\test_mutar_individuo.py .                                                                                                                                                                     [ 87%]     
+test\test_seleccionar_padres.py .                                                                                                                                                                  [100%]     
+
+=========================================================================================== 8 passed in 0.04s ===========================================================================================   
+
+```
+
+
+# Implementación 
+**Tecnologías y herramientas utilizadas**
+* Python 3.13.9
+* Pytest para tests unitarios 
+* Gitpara control de versiones 
+* Markdown para documentación
+* Editor: VS Code 
+* Referencias: Grokking Artificial Intelligence Algorithms 
+
+**Backend**
+* Lógica del juego está completamente implementada en Python
+
+**Interfaz**
+* Consola de comandos (terminal). No se utiliza Interfaz gráfica ni web.
+# Pruebas
+- Cobertura
+
+Todos los módulos críticos están cubiertos por pruebas unitarias: creación de individuos, evaluación de fitness, selección de padres, cruce y mutación.
+
+**Test de unidad**
+* Cada función se prueba individualmente, comprobando que genera resultados correctos.
+
+**Test de integración**
+* Se realizaron pruebas de integración que comprueban que los módulos trabajan correctamente en conjunto, desde la generación de población hasta la resolución del código secreto.
+
+
+
+# Análises del tiempo invertido
+Se utilizó WakaTime para registrar la actividad en el proyecto, estimando un total de 24 horas distribuidas entre:
+
+- Comprender la lógica del algoritmo genético y del juego Mastermind.
+
+- Implementar las funciones y modularizar el código.
+
+- Crear y ejecutar pruebas unitarias.
+
+- Redactar la documentación y README.
+
+- Nota:  WakaTime refleja actividad en el proyecto, pero no puede mostrar todas las pausas o sesiones anteriores al período disponible, por lo que esta cifra es aproximada.
+
+# Justificación Temporal
+Algunas tareas requirieron más tiempo debido a la complejidad de entender la evolución de la población y la correcta modularización del código. Además, al ser principiante en programación de algoritmos genéticos y tests unitarios, el proceso de implementación resultó más desafiante, ya que fue necesario aprender conceptos y aplicarlos correctamente sin ayuda externa.
+
+# Uso de IA 
+
+Durante la implementación de los tests unitarios se utilizó GitHub Copilot como asistente de programación. Copilot ayudó a generar sugerencias de código para los tests, agilizando su creación.
+Se utilizó únicamente como guía y sugerencia.
+
+
+# Conclusión
+ El proyecto permitió aprender a implementar un algoritmo genético aplicado al juego Mastermind, modularizando el código y verificando su correcto funcionamiento mediante tests unitarios. El proceso también reforzó la importancia de la planificación y de la comprensión de cada módulo antes de integrarlos, especialmente como principiante en programación de algoritmos genéticos.
+
+La ejecución en consola permite visualizar cómo la población de individuos evoluciona hasta encontrar la solución, y la experiencia adquirida durante el desarrollo, incluyendo la resolución de dificultades iniciales, contribuyó significativamente al aprendizaje y a la adquisición de habilidades en desarrollo de software modular y testeable.
+
+# Posibles Mejoras 
+* Añadir interfaz gráfica o web para visualización del juego.
+* Mostrar evolución de la población en cada intento con detalle de fitness.
+
+
+# Dificultades 
+
+* Comprender la lógica del algoritmo genético como principiante.
+
+* Manejo de importaciones relativas y modularización en Python.
+
+* Implementación y comprensión de tests unitarios.
+
+
+
+
+A pesar de las dificultades, este proyecto permitió consolidar conocimientos de Python, algoritmos genéticos y pruebas unitarias, preparando el camino para futuros proyectos más complejos. 
+
+
+
+
+
+
+
+
+
+
+
 
 
