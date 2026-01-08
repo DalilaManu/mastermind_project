@@ -14,22 +14,21 @@ ___
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Metodología](#metodologia)
-- [Descripción técnica](#descripcion-tecnica)
+- [Descripción técnica](#descripción-técnica)
 - [Requisitos funcionales/no funcionales](#requisitos-funcionalesno-funcionales)
 - [Historias de usuaria](#historias-de-usuaria)
-- [Arquitectura de la aplicación](#arquitectura-de-la-aplicacion)
+- [Arquitectura de la aplicación](#arquitectura-de-la-aplicación)
 - [Diseño](#diseño)
 - [Diagrama de Componentes](#diagrama-de-componentes)
-- [Implementación](#implementacion)
-- [Tecnologías y herramientas utilizadas](#tecnologias-y-herramientas-utilizadas)
+- [Implementación](#implementación)
+- [Tecnologías y herramientas utilizadas](#tecnologías-y-herramientas-utilizadas)
 - [Backend](#backend)
 - [Interfaz](#interfaz)
 - [Pruebas](#pruebas)
-- [Cobertura](#cobertura)
 - [Test de unidad](#test-de-unidad)
-- [Test de integración](#test-de-integracion)
-- [Análisis del tiempo invertido](#analisis-del-tiempo-invertido)
-- [Justificación temporal](#justificacion-temporal)
+- [Test de integración](#test-de-integración)
+- [Análisis del tiempo invertido](#análisis-del-tiempo-invertido)
+- [Justificación temporal](#justificación-temporal)
 - [Uso de IA](#uso-de-ia)
 - [Conclusiones](#conclusiones)
 - [Posibles mejoras](#posibles-mejoras)
@@ -114,7 +113,7 @@ Intento 11:
 5. Repetir hasta encontrar la solución o alcanzar el límite de intentos.
 - No se utilizaron frameworks externos para la lógica del juego; todo se implementó en Python estándar.
 
-# Descripcón Técnica 
+# Descripción Técnica 
 El proyecto se encuentra en un algoritmo genético simple:
 
 * Población: 50 individuos 
@@ -136,7 +135,7 @@ Entre los requisitos no funcionales se incluyen la modularización del código p
 - Comunicación entre módulos mediante parámetros y retornos, evitando dependencias circulares. Esto garantiza cohesión y facilita futuras mejoras.
 
 # Diseño 
-***Diagrama de Componentes***
+# Diagrama de Componentes
 ```
            _________________
           |  main.py       |
@@ -186,7 +185,7 @@ test\test_seleccionar_padres.py .                                               
 
 
 # Implementación 
-**Tecnologías y herramientas utilizadas**
+# Tecnologías y herramientas utilizadas
 * Python 3.13.9
 * Pytest para tests unitarios 
 * Gitpara control de versiones 
@@ -194,36 +193,45 @@ test\test_seleccionar_padres.py .                                               
 * Editor: VS Code 
 * Referencias: Grokking Artificial Intelligence Algorithms 
 
-**Backend**
+
+# Backend
 * Lógica del juego está completamente implementada en Python
 
-**Interfaz**
+# Interfaz
 * Consola de comandos (terminal). No se utiliza Interfaz gráfica ni web.
 # Pruebas
-- Cobertura
+
 
 Todos los módulos críticos están cubiertos por pruebas unitarias: creación de individuos, evaluación de fitness, selección de padres, cruce y mutación.
 
-**Test de unidad**
+# Test de unidad
 * Cada función se prueba individualmente, comprobando que genera resultados correctos.
 
-**Test de integración**
+# Test de integración
 * Se realizaron pruebas de integración que comprueban que los módulos trabajan correctamente en conjunto, desde la generación de población hasta la resolución del código secreto.
 
 
+# Análisis del tiempo invertido
 
-# Análises del tiempo invertido
-Se utilizó WakaTime para registrar la actividad en el proyecto, estimando un total de 24 horas distribuidas entre:
+Para el seguimiento del tiempo dedicado al proyecto se utilizó **WakaTime**, una herramienta de medición automática de actividad en el editor de código.
 
-- Comprender la lógica del algoritmo genético y del juego Mastermind.
+<p align="center">
+  <img src="images/wakatime.png" alt="Análisis de tiempo en WakaTime" width="800">
+</p>
 
-- Implementar las funciones y modularizar el código.
+Según los datos globales del proyecto registrados por WakaTime, el tiempo total invertido fue de aproximadamente **24 horas**.
 
-- Crear y ejecutar pruebas unitarias.
+La información visual presentada corresponde a la actividad registrada **durante los últimos 7 días**, período en el cual se reflejan las sesiones finales de desarrollo y documentación del proyecto. 
 
-- Redactar la documentación y README.
+En ese período reciente, el tiempo se distribuyó principalmente en:
 
-- Nota:  WakaTime refleja actividad en el proyecto, pero no puede mostrar todas las pausas o sesiones anteriores al período disponible, por lo que esta cifra es aproximada.
+- **Markdown:** redacción y ajustes de la documentación del proyecto.
+- **Python:** desarrollo y refinamiento de la lógica del algoritmo genético y pruebas.
+- **Editor utilizado:** Visual Studio Code.
+
+
+
+
 
 # Justificación Temporal
 Algunas tareas requirieron más tiempo debido a la complejidad de entender la evolución de la población y la correcta modularización del código. Además, al ser principiante en programación de algoritmos genéticos y tests unitarios, el proceso de implementación resultó más desafiante, ya que fue necesario aprender conceptos y aplicarlos correctamente sin ayuda externa.
