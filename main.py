@@ -7,12 +7,17 @@ from src.genetico import (
       mutar_individuo,
         es_solucion
     )
-from src.constantes_mastermind import GENES, VALORES_POSIBLES, POBLACION, MAX_INTENTOS, TASA_MUTACION
+from src.constantes_mastermind import GENES, VALORES_POSIBLES, POBLACION, MAX_INTENTOS, TASA_MUTACION, EMOJIS
+
+def convertir_a_emojis(codigo_secreto):
+    from src.constantes_mastermind import EMOJIS
+    return [EMOJIS[color] for color in codigo_secreto]
+
 
 def main():
     # Crear el código secreto y la población inicial
     codigo_secreto = crear_codigo_secreto() 
-    print("Código secreto generado:", codigo_secreto, "¡Comienza el juego!")
+    print("Código secreto generado:", convertir_a_emojis(codigo_secreto), "¡Comienza el juego!")
 
 
     # Crear población inicial
@@ -56,11 +61,12 @@ def main():
         #Verificar si se ha encontrado la solución
         if es_solucion(mejor_individuo, codigo_secreto):
             solucion_encontrada = True
-            print(f"¡Solución encontrada! Código secreto: {codigo_secreto}")
+            print("Melhor intento:", " ".join(convertir_a_emojis(mejor_individuo)),
+              f"| Fitness: {mejor_fitness}")
            
     
     if not solucion_encontrada:
-        print(f"Se han agotado los intentos. El código secreto era: {codigo_secreto}")
-
+        print("Se han agotado los intentos. El código secreto era:",
+              " ".join(convertir_a_emojis(codigo_secreto)))
 if __name__ == "__main__":
     main()
