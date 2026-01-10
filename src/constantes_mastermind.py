@@ -3,3 +3,11 @@ VALORES_POSIBLES = ['AMARILLO', 'AZUL', 'ROJO', 'VERDE', 'NARANJA', 'MORADO']
 POBLACION = 50
 TASA_MUTACION = 0.01
 MAX_INTENTOS = 15
+EMOJIS = {
+    'AMARILLO': '🟡',
+    'AZUL': '🔵',
+    'ROJO': '🔴',
+    'VERDE': '🟢',
+    'NARANJA': '🟠',
+    'MORADO': '🟣'
+}
