@@ -92,13 +92,16 @@ python main.py
 - El programa generará un código secreto y aplicará un algoritmo genético para encontrarlo en un máximo de intentos. Se mostrará en consola cada intento y si la solución fue encontrada o no.
 - Ejemplo de salida en consola:
 ```bash
-Código secreto generado. ¡Comienza el juego!
-Intento 1:
-Intento 2:
-...
-Intento 11:
-¡Solución encontrada! Código secreto: ['ROJO', 'VERDE', 'MORADO', 'AZUL']
+Código secreto generado: ['🟡', '🟠', '🟡', '🟣'] ¡Comienza el juego!
 
+Intento 1:
+
+Intento 2:
+
+Intento 3:
+
+Intento 4:
+Melhor intento: 🟡 🟠 🟡 🟣 | Fitness: 4
 ```
 
 
