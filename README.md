@@ -145,27 +145,11 @@ Entre los requisitos no funcionales se incluyen la modularización del código p
 
 # Diseño 
 # Diagrama de Componentes
-```
-           _________________
-          |  main.py       |
-          |  (Controlador) |
-          __________________
-                   |
-                   |
-           ________________
-          | genetico.py    |
-          |  (Modelo)      |
-          __________________
-           ^           ^
-           |           |
-__________________   _________________
-| constantes_    |     | tests/     |
-| mastermind.py  |     | (Validación)|
-| (Configuración)|     _________________
-__________________
 
+<p aling="center">
+  <img src="images/Diagrama.drawio.png" alt="Diagrama de Componentes" width="800">
+</p>
 
-```
 ``` main.py``` controla el flujo del juego y coordina la ejecución de las funciones del algoritmo genético.
 
 ```genetico.py``` contiene la lógica principal: creación de población, evaluación de fitness, selección de padres, cruce y mutación.
@@ -174,7 +158,7 @@ __________________
 
 ```tests/``` contiene pruebas unitarias que verifican la correcta ejecución de cada función del modelo, asegurando la robustez del código.
 
-Las flechas indican el flujo de datos y dependencias: main.py llama al modelo, que depende de la configuración; los tests verifican el comportamiento del modelo de manera independiente.
+Las flechas indican el flujo de datos y dependencias: main.py llama al modelo, que depende de la configuración(constantes); los tests verifican el comportamiento del modelo de manera independiente.
 
 * Ejecución de tests en consola muestra:
 ```bash
@@ -224,7 +208,7 @@ Todos los módulos críticos están cubiertos por pruebas unitarias: creación d
 
 Para el seguimiento del tiempo dedicado al proyecto se utilizó **WakaTime**, una herramienta de medición automática de actividad en el editor de código.
 
-<p align="center">
+<p aling="center">
   <img src="images/wakatimeatualizado.png" alt="Análisis de tiempo en WakaTime" width="800">
 </p>
 
