@@ -225,10 +225,10 @@ Todos los módulos críticos están cubiertos por pruebas unitarias: creación d
 Para el seguimiento del tiempo dedicado al proyecto se utilizó **WakaTime**, una herramienta de medición automática de actividad en el editor de código.
 
 <p align="center">
-  <img src="images/wakatime.png" alt="Análisis de tiempo en WakaTime" width="800">
+  <img src="images/wakatimeatualizado.png" alt="Análisis de tiempo en WakaTime" width="800">
 </p>
 
-Según los datos globales del proyecto registrados por WakaTime, el tiempo total invertido fue de aproximadamente **24 horas**.
+Según los datos globales del proyecto registrados por WakaTime, el tiempo total invertido fue de aproximadamente **27 horas**.
 
 La información visual presentada corresponde a la actividad registrada **durante los últimos 7 días**, período en el cual se reflejan las sesiones finales de desarrollo y documentación del proyecto. 
 
