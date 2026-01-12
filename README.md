@@ -231,8 +231,8 @@ Algunas tareas requirieron más tiempo debido a la complejidad de entender la ev
 
 # Uso de IA 
 
-Durante la implementación de los tests unitarios se utilizó GitHub Copilot como asistente de programación. Copilot ayudó a generar sugerencias de código para los tests, agilizando su creación.
-Se utilizó únicamente como guía y sugerencia.
+Durante la implementación de los tests unitarios se utilizó GitHub Copilot. Copilot ayudó a generar sugerencias de código para los tests, agilizando su creación.
+Tambiém se utilizó como guía y sugerencia puntual para recordar sintaxis de Python y estructuras básicas.
 
 
 # Conclusión
