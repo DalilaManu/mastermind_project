@@ -118,13 +118,19 @@ Melhor intento: 🟡 🟠 🟡 🟣 | Fitness: 4
 
 # Descripción Técnica 
 El proyecto se encuentra en un algoritmo genético simple:
-
-* Población: 50 individuos 
-* Genes: 4 colores por código 
-* Valores Posibles: ["AMARILLO", "AZUL", "ROJO", "VERDE", "NARANJA", "MORADO"]
-* Tasa de mutación: 1%
-* Máximo de intentos: 15 
-- El proyecto se centra en la lógica del algoritmo genético: creación de individuos, evaluación de fitness, selección de padres, cruce, mutación y verificación de la solución.
+* GENES = 4
+* VALORES_POSIBLES = ['AMARILLO', 'AZUL', 'ROJO', 'VERDE', 'NARANJA', 'MORADO']
+* POBLACION = 50
+* TASA_MUTACION = 0.01
+* MAX_INTENTOS = 15
+* EMOJIS = {
+    'AMARILLO': '🟡',
+    'AZUL': '🔵',
+    'ROJO': '🔴',
+    'VERDE': '🟢',
+    'NARANJA': '🟠',
+    'MORADO': '🟣'
+}
 
 # Requisitos funcionales/no funcionales 
 El sistema debe ser capaz de generar un código secreto y aplicar un algoritmo genético para resolverlo automáticamente, mostrando la evolución de la población en consola. Los usuarios pueden configurar parámetros del algoritmo, como población, genes, tasa de mutación y número máximo de intentos.
