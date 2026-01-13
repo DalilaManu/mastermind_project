@@ -111,7 +111,7 @@ Melhor intento: 🟡 🟠 🟡 🟣 | Fitness: 4
 
 1. Crear poblácion inicial de indivíduos aleatórios.
 2. Evaluar fitness de cada indivíduo (número de colores correctos en posición correcta).
-3. Seleccionar los individuos con mejor fitness como padres.
+3. Seleccionar los individuos con mejor fitness como padres. Se aplicó un elitismo parcial en esta selección para asegurar que los mejores individuos influyeran en la nueva población.
 4. Cruzar y mutar para generar nueva población.
 5. Repetir hasta encontrar la solución o alcanzar el límite de intentos.
 - No se utilizaron frameworks externos para la lógica del juego; todo se implementó en Python estándar.
@@ -140,8 +140,8 @@ Entre los requisitos no funcionales se incluyen la modularización del código p
 * Separación entre constantes (```constantes_mastermind```) y lógica (```genetico.py``` y ```main.py```).
 
 
-- Patrón similar a MVC: main.py actúa como controlador, genetico.py como modelo, constantes_mastermind.py como fuente de configuración.
-- Comunicación entre módulos mediante parámetros y retornos, evitando dependencias circulares. Esto garantiza cohesión y facilita futuras mejoras.
+- Patrón similar a MVC– Modelo-Vista-Controlador: main.py actúa como controlador, genetico.py como modelo, constantes_mastermind.py como fuente de configuración.
+
 
 # Diseño 
 # Diagrama de Componentes
@@ -227,12 +227,12 @@ En ese período reciente, el tiempo se distribuyó principalmente en:
 
 
 # Justificación Temporal
-Algunas tareas requirieron más tiempo debido a la complejidad de entender la evolución de la población y la correcta modularización del código. Además, al ser principiante en programación de algoritmos genéticos y tests unitarios, el proceso de implementación resultó más desafiante, ya que fue necesario aprender conceptos y aplicarlos correctamente sin ayuda externa.
+Algunas tareas requirieron más tiempo debido a la complejidad de entender la evolución de la población y la correcta modularización del código. Además, al ser principiante en programación de algoritmos genéticos y tests unitarios, el proceso de implementación resultó más desafiante, ya que fue necesario aprender conceptos y aplicarlos correctamente.
 
 # Uso de IA 
 
 Durante la implementación de los tests unitarios se utilizó GitHub Copilot. Copilot ayudó a generar sugerencias de código para los tests, agilizando su creación.
-Tambiém se utilizó como guía y sugerencia puntual para recordar sintaxis de Python y estructuras básicas.
+Tambiém se utilizó Copilot y ChatGPT como guía y sugerencia puntual para recordar sintaxis de Python y estructuras básicas.
 
 
 # Conclusión
