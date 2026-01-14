@@ -81,7 +81,8 @@ pip install -r requirements.txt
 - Archivos importantes en el repositorio: ```.gitignore```, ```requirements.txt``` y ```__init__.py``` dentro de carpetas de módulos para que Python reconozca paquetes.
 
 # Instalación
-- La instalación se realiza a través de pip mediante el archivo requirements.txt, que incluye todas las dependencias necesarias para ejecutar los tests y el juego.
+- La instalación se realiza a través de pip mediante el archivo requirements.txt, que incluye las dependencias necesarias para ejecutar los tests unitarios.
+ El juego en sí utiliza únicamente librerías estándar de Python.
 
 
 # Uso
