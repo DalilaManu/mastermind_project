@@ -1,6 +1,11 @@
 # mastermind_project
 Juego Mastermind con Algoritmo Genético
 
+Proyecto realizado por:
+- [Dalila Teodosio](https://github.com/DalilaManu)
+- [Yolanda Sobral](https://github.com/yolisobral)
+
+
 ___
 
 
@@ -42,7 +47,7 @@ ___
 
 ## Introducción
 
-Este proyecto es una implementación basica del juego Matermind usando un algorítmo genetico. Se ha desarrollado como práctica del aprendizaje de Python, algoritmos genéticos y control de versiones con Git y algoritmos evolutivos, con el objetivo de demostrar cómo un algoritmo genético puede evolucionar soluciones hasta resolver un código secreto generado aleatoriamente. El proyecto permite visualizar en consola la evolución de la población de individuos y cómo se aproxima a la solución óptima.
+Este proyecto es una implementación basica del juego Matermind usando un algorítmo genetico. Se ha desarrollado como práctica del aprendizaje de Python, algoritmos genéticos y control de versiones con Git y algoritmos evolutivos, con el objetivo de demostrar cómo un algoritmo genético puede evolucionar soluciones hasta resolver un código secreto generado aleatoriamente. 
 
 
 **Objetivo del Juego**
@@ -90,7 +95,7 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
-- El programa generará un código secreto y aplicará un algoritmo genético para encontrarlo en un máximo de intentos. Se mostrará en consola cada intento y si la solución fue encontrada o no.
+- El programa generará un código secreto y aplicará un algoritmo genético para encontrarlo en un máximo de intentos. Se mostrará en consola si la solución fue encontrada o no.
 - Ejemplo de salida en consola:
 ```bash
 Código secreto generado: ['🟡', '🟠', '🟡', '🟣'] ¡Comienza el juego!
@@ -134,47 +139,76 @@ El proyecto se encuentra en un algoritmo genético simple:
 }
 
 # Requisitos funcionales/no funcionales 
-El sistema debe ser capaz de generar un código secreto y aplicar un algoritmo genético para resolverlo automáticamente, mostrando la evolución de la población en consola. Los usuarios pueden configurar parámetros del algoritmo, como población, genes, tasa de mutación y número máximo de intentos.
-Entre los requisitos no funcionales se incluyen la modularización del código para facilitar su mantenimiento, la claridad de la salida en consola y la posibilidad de añadir pruebas unitarias sin afectar la lógica central del juego.
+El sistema debe ser capaz de generar un código secreto aleatório y aplicar un algoritmo genético para resolverlo automáticamente, mostrar en consola cada intento realizado por la población hasta encontrar la solución o alcanzar el límite de intentos, permite modificar parámetros del juego directamente en el archivo de configuración (constantes_mastermind.py) como:
+* Número de genes del código
+* Tamaño de la población
+* Tasa de mutación
+* Número máximo de intentos
 
-# Arquitectura de la aplicación 
-* Separación entre constantes (```constantes_mastermind```) y lógica (```genetico.py``` y ```main.py```).
+Entre los requisitos no funcionales se incluyen:
+* Modularización: cada función está en su propio archivo Python (crear_codigo_secreto.py, crear_individuo.py, etc.), facilitando el mantenimiento y los tests.
 
+* Salida en consola legible: actualmente se muestra el código secreto y el mejor individuo con su fitness, se podría añadir la visualización completa de la evolución del fitness de toda la población.
 
-- Patrón similar a MVC– Modelo-Vista-Controlador: main.py actúa como controlador, genetico.py como modelo, constantes_mastermind.py como fuente de configuración (El proyecto não tiene una vista gráfica. La visualización se realiza por consola, a través de impresiones en main.py, que actúan como la View del sistema)
+* Cobertura de tests unitários: cada módulo cuenta con tests que aseguran que su funcionamiento es correto.
+
+* Uso de Python estándar: no depende de librerías externas para ejecutar el juego.
+
+# Arquitectura de la aplicación
+
+La aplicación sigue una arquitectura modular inspirada en el patrón MVC (Modelo–Vista–Controlador), adaptado a un entorno sin interfaz gráfica.
+
+- **Controlador (Controller)**  
+  `main.py` controla el flujo del programa, coordina la ejecución del algoritmo genético y gestiona la interacción por consola.
+
+- **Modelo (Model)**  
+  La lógica del algoritmo genético está distribuida en varios módulos independientes dentro del directorio `src/`, cada uno con una responsabilidad específica:
+  
+  - `crear_codigo_secreto.py`
+  - `crear_individuo.py`
+  - `crear_poblacion.py`
+  - `evaluar_fitness.py`
+  - `seleccionar_padres.py`
+  - `cruzar_padres.py`
+  - `mutar_individuo.py`
+  - `es_solucion.py`
+
+- **Configuración**  
+  `constantes_mastermind.py` centraliza todos los parámetros del juego y del algoritmo (genes, colores, tasa de mutación, etc.).
+
+- **Vista (View)**  
+  No existe una vista gráfica. La visualización por consola mediante mensajes impresos desde `main.py`.
 
 
 # Diseño 
 # Diagrama de Componentes
 
 <p aling="center">
-  <img src="images/Diagrama.drawio.png" alt="Diagrama de Componentes" width="800">
+  <img src="images/novodiagrama.drawio.png" alt="Diagrama de Componentes" width="800">
 </p>
 
-``` main.py``` controla el flujo del juego y coordina la ejecución de las funciones del algoritmo genético.
+`main.py` controla el flujo del juego y coordina la ejecución de los módulos del algoritmo genético.
 
-```genetico.py``` contiene la lógica principal: creación de población, evaluación de fitness, selección de padres, cruce y mutación.
+Los módulos del directorio `src/` implementan la lógica del algoritmo genético de forma modular e independiente.
 
-```constantes_mastermind.py``` define los parámetros del juego (colores, genes, tasa de mutación, etc.) y es utilizado por genetico.py.
+`constantes_mastermind.py` define los parámetros del juego (colores, genes, tasa de mutación, etc.) y es utilizado por los módulos del modelo.
 
-```tests/``` contiene pruebas unitarias que verifican la correcta ejecución de cada función del modelo, asegurando la robustez del código.
-
-Las flechas indican el flujo de datos y dependencias: main.py llama al modelo, que depende de la configuración(constantes); los tests verifican el comportamiento del modelo de manera independiente.
+`tests/` contiene pruebas unitarias que verifican el correcto funcionamiento de cada módulo.
 
 * Ejecución de tests en consola muestra:
 ```bash
-collected 8 items                                                                                                                                                                                        
+collected 9 items                                                                                                                                                                                                         
 
-test\test_crear_codigo_secreto.py .                                                                                                                                                                [ 12%]
-test\test_crear_individuo.py .                                                                                                                                                         [ 25%]
-test\test_cruzar_padres.py .                                                                                                                                                                       [ 37%]     
-test\test_es_solucion.py ..                                                                                                                                                                        [ 62%]     
-test\test_evaluar_fitness.py .                                                                                                                                                                     [ 75%]     
-test\test_mutar_individuo.py .                                                                                                                                                                     [ 87%]     
-test\test_seleccionar_padres.py .                                                                                                                                                                  [100%]     
+test\test_crear_codigo_secreto.py .                                                                                                                                                                                 [ 11%]
+test\test_crear_individuo.py .                                                                                                                                                                                      [ 22%]
+test\test_crear_poblacion.py .                                                                                                                                                                                      [ 33%]
+test\test_cruzar_padres.py .                                                                                                                                                                                        [ 44%]
+test\test_es_solucion.py ..                                                                                                                                                                                         [ 66%]
+test\test_evaluar_fitness.py .                                                                                                                                                                                      [ 77%]
+test\test_mutar_individuo.py .                                                                                                                                                                                      [ 88%]
+test\test_seleccionar_padres.py .                                                                                                                                                                                   [100%]
 
-=========================================================================================== 8 passed in 0.04s ===========================================================================================   
-
+=================================================================================================== 9 passed in 0.05s ====================================================================================================
 ```
 
 
