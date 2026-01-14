@@ -14,18 +14,14 @@ ___
 
 
 - [Introducción](#introducción)
-- [Manual](#manual)
 - [Prerrequisitos](#prerrequisitos)
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Metodología](#metodologia)
 - [Descripción técnica](#descripción-técnica)
 - [Requisitos funcionales/no funcionales](#requisitos-funcionalesno-funcionales)
-- [Historias de usuaria](#historias-de-usuaria)
 - [Arquitectura de la aplicación](#arquitectura-de-la-aplicación)
-- [Diseño](#diseño)
 - [Diagrama de Componentes](#diagrama-de-componentes)
-- [Implementación](#implementación)
 - [Tecnologías y herramientas utilizadas](#tecnologías-y-herramientas-utilizadas)
 - [Backend](#backend)
 - [Interfaz](#interfaz)
@@ -53,9 +49,9 @@ Este proyecto es una implementación basica del juego Matermind usando un algor�
 **Objetivo del Juego**
 - El objetivo es implementar un algoritmo genético capaz de “resolver” o encontrar un código secreto generado aleatoriamente dentro de un número limitado de intentos, mostrando cómo evolucionan las poblaciones de individuos.
 
-# Manual
 
-**Instalación**
+
+# Instalación
 - Para ejecutar el proyecto, primero se debe clonar el repositorio e instalar las dependencias en un entorno virtual:
 
 1. Clonar el proyecto:
@@ -79,15 +75,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+
 # Prerrequisitos
 - Es necesario contar con Python 3.13 o superior.
 - Conocimientos básicos de terminal y entorno virtual.  
 - Git para control de versiones.
 - Archivos importantes en el repositorio: ```.gitignore```, ```requirements.txt``` y ```__init__.py``` dentro de carpetas de módulos para que Python reconozca paquetes.
 
-# Instalación
-- La instalación se realiza a través de pip mediante el archivo requirements.txt, que incluye las dependencias necesarias para ejecutar los tests unitarios.
- El juego en sí utiliza únicamente librerías estándar de Python.
 
 
 # Uso
@@ -177,7 +171,7 @@ La aplicación sigue una arquitectura modular inspirada en el patrón MVC (Model
   `constantes_mastermind.py` centraliza todos los parámetros del juego y del algoritmo (genes, colores, tasa de mutación, etc.).
 
 - **Vista (View)**  
-  No existe una vista gráfica. La visualización por consola mediante mensajes impresos desde `main.py`.
+  No existe una vista gráfica. La visualización se realiza por consola mediante mensajes impresos desde `main.py`.
 
 
 # Diseño 
@@ -212,7 +206,6 @@ test\test_seleccionar_padres.py .                                               
 ```
 
 
-# Implementación 
 # Tecnologías y herramientas utilizadas
 * Python 3.13.9
 * Pytest para tests unitarios 
