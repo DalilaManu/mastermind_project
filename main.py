@@ -1,12 +1,11 @@
-from src.genetico import (
-    crear_codigo_secreto,
-      crear_poblacion, 
-      evaluar_fitness, 
-      seleccionar_padres, 
-      cruzar_padres, 
-      mutar_individuo,
-        es_solucion
-    )
+from src.crear_codigo_secreto import crear_codigo_secreto
+from src.crear_poblacion import crear_poblacion 
+from src.seleccionar_padres import seleccionar_padres
+from src.cruzar_padres import cruzar_padres
+from src.mutar_individuo import mutar_individuo
+from src.evaluar_fitness import evaluar_fitness
+from src.es_solucion import es_solucion
+
 from src.constantes_mastermind import GENES, VALORES_POSIBLES, POBLACION, MAX_INTENTOS, TASA_MUTACION, EMOJIS
 
 def convertir_a_emojis(codigo_secreto):
