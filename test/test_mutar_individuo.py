@@ -1,4 +1,6 @@
-from src.genetico import mutar_individuo, crear_individuo, VALORES_POSIBLES, TASA_MUTACION, POBLACION
+from src.mutar_individuo import mutar_individuo
+from src.crear_individuo import crear_individuo
+from src.constantes_mastermind import TASA_MUTACION, POBLACION, VALORES_POSIBLES
 import pytest
 
 def test_mutar_individuo():

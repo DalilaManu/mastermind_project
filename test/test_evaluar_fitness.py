@@ -1,4 +1,5 @@
-from src.genetico import  GENES, VALORES_POSIBLES, evaluar_fitness
+from src.evaluar_fitness import evaluar_fitness
+from src.constantes_mastermind import GENES
 import pytest
 
 def test_evaluar_fitness():

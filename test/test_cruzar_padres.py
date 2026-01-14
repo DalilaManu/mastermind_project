@@ -1,5 +1,5 @@
-
-from src.genetico import cruzar_padres
+from src.cruzar_padres import cruzar_padres
+import pytest
 
 def test_cruzar_padres():
     padres = [

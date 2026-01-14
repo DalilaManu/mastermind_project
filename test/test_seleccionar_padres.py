@@ -1,5 +1,5 @@
 
-from src.genetico import seleccionar_padres, crear_individuo
+from src.seleccionar_padres import seleccionar_padres
 import pytest
 
 
@@ -16,3 +16,4 @@ def test_seleccionar_padres():
 
     assert len(padres) == 1
     assert padres[0] == individuo1
+    # Asegurarse de que el padre seleccionado tiene el mayor fitness

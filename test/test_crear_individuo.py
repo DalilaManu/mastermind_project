@@ -1,6 +1,5 @@
-
-
-from src.genetico import crear_individuo, GENES, VALORES_POSIBLES
+from src.crear_individuo import crear_individuo
+from src.constantes_mastermind import GENES, VALORES_POSIBLES
 import pytest
 
 

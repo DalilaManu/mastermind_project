@@ -1,7 +1,5 @@
-
-
-
-from src.genetico import crear_codigo_secreto, GENES, VALORES_POSIBLES
+from src.crear_codigo_secreto import crear_codigo_secreto
+from src.constantes_mastermind import GENES, VALORES_POSIBLES
 import pytest
 
 

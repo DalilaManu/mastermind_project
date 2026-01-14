@@ -1,4 +1,4 @@
-from src.genetico import es_solucion
+from src.es_solucion import es_solucion
 import pytest
 
 def test_es_solucion_true():
