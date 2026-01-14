@@ -140,7 +140,7 @@ Entre los requisitos no funcionales se incluyen la modularización del código p
 * Separación entre constantes (```constantes_mastermind```) y lógica (```genetico.py``` y ```main.py```).
 
 
-- Patrón similar a MVC– Modelo-Vista-Controlador: main.py actúa como controlador, genetico.py como modelo, constantes_mastermind.py como fuente de configuración.
+- Patrón similar a MVC– Modelo-Vista-Controlador: main.py actúa como controlador, genetico.py como modelo, constantes_mastermind.py como fuente de configuración (El proyecto não tiene una vista gráfica. La visualización se realiza por consola, a través de impresiones en main.py, que actúan como la View del sistema)
 
 
 # Diseño 
