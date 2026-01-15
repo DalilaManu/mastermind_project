@@ -22,12 +22,10 @@ ___
 - [Requisitos funcionales/no funcionales](#requisitos-funcionalesno-funcionales)
 - [Arquitectura de la aplicación](#arquitectura-de-la-aplicación)
 - [Diagrama de Componentes](#diagrama-de-componentes)
+- [Pruebas](#pruebas)
 - [Tecnologías y herramientas utilizadas](#tecnologías-y-herramientas-utilizadas)
 - [Backend](#backend)
 - [Interfaz](#interfaz)
-- [Pruebas](#pruebas)
-- [Test de unidad](#test-de-unidad)
-- [Test de integración](#test-de-integración)
 - [Análisis del tiempo invertido](#análisis-del-tiempo-invertido)
 - [Justificación temporal](#justificación-temporal)
 - [Uso de IA](#uso-de-ia)
@@ -77,9 +75,8 @@ pip install -r requirements.txt
 
 
 # Prerrequisitos
-- Es necesario contar con Python 3.13 o superior.
-- Conocimientos básicos de terminal y entorno virtual.  
 - Git para control de versiones.
+- Es necesario contar con Python 3.13 o superior.
 - Archivos importantes en el repositorio: ```.gitignore```, ```requirements.txt``` y ```__init__.py``` dentro de carpetas de módulos para que Python reconozca paquetes.
 
 
@@ -174,7 +171,7 @@ La aplicación sigue una arquitectura modular inspirada en el patrón MVC (Model
   No existe una vista gráfica. La visualización se realiza por consola mediante mensajes impresos desde `main.py`.
 
 
-# Diseño 
+
 # Diagrama de Componentes
 
 <p aling="center">
@@ -187,8 +184,10 @@ Los módulos del directorio `src/` implementan la lógica del algoritmo genétic
 
 `constantes_mastermind.py` define los parámetros del juego (colores, genes, tasa de mutación, etc.) y es utilizado por los módulos del modelo.
 
-`tests/` contiene pruebas unitarias que verifican el correcto funcionamiento de cada módulo.
-
+# Pruebas
+# Pruebas
+Cada módulo del algoritmo genético está cubierto por tests unitarios.
+Los tests se ejecutan desde la consola, utilizando exclusivamente Pytest, sin frameworks adicionales.
 * Ejecución de tests en consola muestra:
 ```bash
 collected 9 items                                                                                                                                                                                                         
@@ -220,17 +219,10 @@ test\test_seleccionar_padres.py .                                               
 
 # Interfaz
 * Consola de comandos (terminal). No se utiliza Interfaz gráfica ni web.
-# Pruebas
+
 
 
 Todos los módulos críticos están cubiertos por pruebas unitarias: creación de individuos, evaluación de fitness, selección de padres, cruce y mutación.
-
-# Test de unidad
-* Cada función se prueba individualmente, comprobando que genera resultados correctos.
-
-# Test de integración
-* Se realizaron pruebas de integración que comprueban que los módulos trabajan correctamente en conjunto, desde la generación de población hasta la resolución del código secreto.
-
 
 # Análisis del tiempo invertido
 
