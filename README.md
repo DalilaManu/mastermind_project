@@ -259,7 +259,6 @@ La ejecución en consola permite visualizar cómo la población de individuos ev
 # Posibles Mejoras 
 
 * Mejorar la diversidad genética de la población  
-En algunas ejecuciones, la población converge demasiado rápido hacia soluciones similares.
 * Añadir interfaz gráfica o web para visualización del juego.
 * Evitar estancamiento evolutivo (el fitness no mejora durante vários intentos)
 
