@@ -185,7 +185,6 @@ Los módulos del directorio `src/` implementan la lógica del algoritmo genétic
 `constantes_mastermind.py` define los parámetros del juego (colores, genes, tasa de mutación, etc.) y es utilizado por los módulos del modelo.
 
 # Pruebas
-# Pruebas
 Cada módulo del algoritmo genético está cubierto por tests unitarios.
 Los tests se ejecutan desde la consola, utilizando exclusivamente Pytest, sin frameworks adicionales.
 * Ejecución de tests en consola muestra:
@@ -258,7 +257,7 @@ Tambiém se utilizó Copilot y ChatGPT como guía y sugerencia puntual para reco
 # Conclusión
  El proyecto permitió aprender a implementar un algoritmo genético aplicado al juego Mastermind, modularizando el código y verificando su correcto funcionamiento mediante tests unitarios. El proceso también reforzó la importancia de la planificación y de la comprensión de cada módulo antes de integrarlos, especialmente como principiante en programación de algoritmos genéticos.
 
-La ejecución en consola permite visualizar cómo la población de individuos evoluciona hasta encontrar la solución, y la experiencia adquirida durante el desarrollo, incluyendo la resolución de dificultades iniciales, contribuyó significativamente al aprendizaje y a la adquisición de habilidades en desarrollo de software modular y testeable.
+La ejecución en consola permite visualizar cómo la población de individuos evoluciona hasta encontrar la solución, y la experiencia adquirida durante el desarrollo, incluyendo la resolución de dificultades iniciales, contribuyó significativamente al aprendizaje.
 
 # Posibles Mejoras 
 * Añadir interfaz gráfica o web para visualización del juego.
