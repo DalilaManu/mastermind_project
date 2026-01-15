@@ -45,7 +45,8 @@ Este proyecto es una implementación basica del juego Matermind usando un algor�
 
 
 **Objetivo del Juego**
-- El objetivo es implementar un algoritmo genético capaz de “resolver” o encontrar un código secreto generado aleatoriamente dentro de un número limitado de intentos, mostrando cómo evolucionan las poblaciones de individuos.
+- El objetivo es implementar un algoritmo genético capaz de resolver un código secreto generado aleatoriamente dentro de un número limitado de intentos.
+- Mostrar en consola la evolución del fitness y el progreso del algoritmo.
 
 
 
@@ -86,19 +87,25 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
-- El programa generará un código secreto y aplicará un algoritmo genético para encontrarlo en un máximo de intentos. Se mostrará en consola si la solución fue encontrada o no.
+- El programa generará un código secreto y aplicará un algoritmo genético para encontrarlo en un máximo de intentos. Se mostrará en consola la evolución del fitness y si la solución fue encontrada o no.
 - Ejemplo de salida en consola:
 ```bash
-Código secreto generado: ['🟡', '🟠', '🟡', '🟣'] ¡Comienza el juego!
+Código secreto generado: ['🟠', '🟡', '🟣', '🟢'] ¡Comienza el juego!
 
 Intento 1:
+individuo: 🟠 🟡 🟣 🔴 | Fitness: 3
 
 Intento 2:
+individuo: 🟠 🟡 🟣 🔴 | Fitness: 3
 
 Intento 3:
+individuo: 🟠 🟡 🟣 🔵 | Fitness: 3
 
 Intento 4:
-Melhor intento: 🟡 🟠 🟡 🟣 | Fitness: 4
+individuo: 🟠 🟡 🟣 🟢 | Fitness: 4
+
+¡Has encontrado el código secreto en: 4 intentos.
+Mejor individuo: 🟠 🟡 🟣 🟢 | Fitness: 4
 ```
 
 
@@ -130,20 +137,12 @@ El proyecto se encuentra en un algoritmo genético simple:
 }
 
 # Requisitos funcionales/no funcionales 
-El sistema debe ser capaz de generar un código secreto aleatório y aplicar un algoritmo genético para resolverlo automáticamente, mostrar en consola cada intento realizado por la población hasta encontrar la solución o alcanzar el límite de intentos, permite modificar parámetros del juego directamente en el archivo de configuración (constantes_mastermind.py) como:
-* Número de genes del código
-* Tamaño de la población
-* Tasa de mutación
-* Número máximo de intentos
-
+El sistema debe ser capaz de generar un código secreto aleatório y aplicar un algoritmo genético para resolverlo automáticamente, mostrar en consola cada intento realizado por la población hasta encontrar la solución o alcanzar el límite de intentos. 
 Entre los requisitos no funcionales se incluyen:
-* Modularización: cada función está en su propio archivo Python (crear_codigo_secreto.py, crear_individuo.py, etc.), facilitando el mantenimiento y los tests.
-
-* Salida en consola legible: actualmente se muestra el código secreto y el mejor individuo con su fitness, se podría añadir la visualización completa de la evolución del fitness de toda la población.
-
+* Modularización completa del código
+* Salida en consola clara y legible
 * Cobertura de tests unitários: cada módulo cuenta con tests que aseguran que su funcionamiento es correto.
-
-* Uso de Python estándar: no depende de librerías externas para ejecutar el juego.
+* Uso exclusivo de Python estándar
 
 # Arquitectura de la aplicación
 
@@ -168,7 +167,7 @@ La aplicación sigue una arquitectura modular inspirada en el patrón MVC (Model
   `constantes_mastermind.py` centraliza todos los parámetros del juego y del algoritmo (genes, colores, tasa de mutación, etc.).
 
 - **Vista (View)**  
-  No existe una vista gráfica. La visualización se realiza por consola mediante mensajes impresos desde `main.py`.
+  No existe una vista gráfica. La visualización se realiza por consola con `main.py`.
 
 
 
@@ -221,8 +220,6 @@ test\test_seleccionar_padres.py .                                               
 
 
 
-Todos los módulos críticos están cubiertos por pruebas unitarias: creación de individuos, evaluación de fitness, selección de padres, cruce y mutación.
-
 # Análisis del tiempo invertido
 
 Para el seguimiento del tiempo dedicado al proyecto se utilizó **WakaTime**, una herramienta de medición automática de actividad en el editor de código.
@@ -260,8 +257,11 @@ Tambiém se utilizó Copilot y ChatGPT como guía y sugerencia puntual para reco
 La ejecución en consola permite visualizar cómo la población de individuos evoluciona hasta encontrar la solución, y la experiencia adquirida durante el desarrollo, incluyendo la resolución de dificultades iniciales, contribuyó significativamente al aprendizaje.
 
 # Posibles Mejoras 
+
+* Mejorar la diversidad genética de la población  
+En algunas ejecuciones, la población converge demasiado rápido hacia soluciones similares.
 * Añadir interfaz gráfica o web para visualización del juego.
-* Mostrar evolución de la población en cada intento con detalle de fitness.
+* Evitar estancamiento evolutivo (el fitness no mejora durante vários intentos)
 
 
 # Dificultades 
