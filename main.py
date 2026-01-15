@@ -9,7 +9,6 @@ from src.es_solucion import es_solucion
 from src.constantes_mastermind import GENES, VALORES_POSIBLES, POBLACION, MAX_INTENTOS, TASA_MUTACION, EMOJIS
 
 def convertir_a_emojis(codigo_secreto):
-    from src.constantes_mastermind import EMOJIS
     return [EMOJIS[color] for color in codigo_secreto]
 
 
@@ -55,12 +54,15 @@ def main():
             if fitness_actual > mejor_fitness:
                 mejor_fitness = fitness_actual
                 mejor_individuo = individuo
-          
+        print("individuo:", " ".join(convertir_a_emojis(mejor_individuo)), f"| Fitness: {mejor_fitness}")
+      
         
         #Verificar si se ha encontrado la solución
         if es_solucion(mejor_individuo, codigo_secreto):
             solucion_encontrada = True
-            print("Melhor intento:", " ".join(convertir_a_emojis(mejor_individuo)),
+            print("\n¡Has encontrado el código secreto en:",
+                  intentos, "intentos.")
+            print("Mejor individuo:", " ".join(convertir_a_emojis(mejor_individuo)),
               f"| Fitness: {mejor_fitness}")
            
     
