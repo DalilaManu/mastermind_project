@@ -213,7 +213,7 @@ test\test_seleccionar_padres.py .                                               
 
 
 # Backend
-* Lógica del juego está completamente implementada en Python
+* El backend del proyecto está completamente implementado en Python y se encarga de toda la lógica del juego y del algoritmo genético. 
 
 # Interfaz
 * Consola de comandos (terminal). No se utiliza Interfaz gráfica ni web.
