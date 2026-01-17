@@ -174,7 +174,7 @@ La aplicación sigue una arquitectura modular inspirada en el patrón MVC (Model
 # Diagrama de Componentes
 
 <p aling="center">
-  <img src="images/novodiagrama.drawio.png" alt="Diagrama de Componentes" width="800">
+  <img src="images/diagcomp.png" alt="Diagrama de Componentes" width="800">
 </p>
 
 `main.py` controla el flujo del juego y coordina la ejecución de los módulos del algoritmo genético.
