@@ -3,7 +3,6 @@ from src.evaluar_fitness import evaluar_fitness
 
 # Selecciona los individuos con mejor fitness de la población como padres
 def seleccionar_padres(poblacion, codigo_secreto):
-    mejor_fitness = -1
     padres = []
  
     for individuo in poblacion:

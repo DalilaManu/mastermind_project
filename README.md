@@ -90,22 +90,25 @@ python main.py
 - El programa generará un código secreto y aplicará un algoritmo genético para encontrarlo en un máximo de intentos. Se mostrará en consola la evolución del fitness y si la solución fue encontrada o no.
 - Ejemplo de salida en consola:
 ```bash
-Código secreto generado: 🟠, 🟡, 🟣, 🟢 ¡Comienza el juego!
+Código secreto generado: 🟢 🔵 🟠 🔴 ¡Comienza el juego!
 
 Intento 1:
-individuo: 🟠 🟡 🟣 🔴 | Fitness: 3
+individuo: 🟢 🟣 🟠 🔴 | Fitness: 3
 
 Intento 2:
-individuo: 🟠 🟡 🟣 🔴 | Fitness: 3
+individuo: 🟢 🔵 🔵 🔴 | Fitness: 3
 
 Intento 3:
-individuo: 🟠 🟡 🟣 🔵 | Fitness: 3
+individuo: 🟢 🔵 🟠 🟡 | Fitness: 3
 
 Intento 4:
-individuo: 🟠 🟡 🟣 🟢 | Fitness: 4
+individuo: 🟢 🔵 🟠 🟡 | Fitness: 3
 
-¡Has encontrado el código secreto en: 4 intentos.
-Mejor individuo: 🟠 🟡 🟣 🟢 | Fitness: 4
+Intento 5:
+individuo: 🟢 🔵 🟠 🔴 | Fitness: 4
+
+¡Has encontrado el código secreto en: 5 intentos.
+Mejor individuo: 🟢 🔵 🟠 🔴 | Fitness: 4
 ```
 
 
@@ -186,22 +189,29 @@ Los módulos del directorio `src/` implementan la lógica del algoritmo genétic
 `constantes_mastermind.py` define los parámetros del juego (colores, genes, tasa de mutación, etc.) y es utilizado por los módulos del modelo.
 
 # Pruebas
-Cada módulo del algoritmo genético está cubierto por tests unitarios.
-Los tests se ejecutan desde la consola, utilizando exclusivamente Pytest, sin frameworks adicionales.
+Cada módulo del algoritmo genético está cubierto por tests unitarios incluyendo:
+- La generación de código secreto
+- La creación de individuos y población
+- Evaluación del fitness
+- Cruce y mutación
+- Selección de padres mediante torneo
+- Comprobación de solución.
+
+Los tests se ejecutan desde la consola, utilizando exclusivamente Pytest.
 * Ejecución de tests en consola muestra:
 ```bash
-collected 9 items                                                                                                                                                                                                         
+collected 10 items                                                                                                                                                                                       
 
-test\test_crear_codigo_secreto.py .                                                                                                                                                                                 [ 11%]
-test\test_crear_individuo.py .                                                                                                                                                                                      [ 22%]
-test\test_crear_poblacion.py .                                                                                                                                                                                      [ 33%]
-test\test_cruzar_padres.py .                                                                                                                                                                                        [ 44%]
-test\test_es_solucion.py ..                                                                                                                                                                                         [ 66%]
-test\test_evaluar_fitness.py .                                                                                                                                                                                      [ 77%]
-test\test_mutar_individuo.py .                                                                                                                                                                                      [ 88%]
-test\test_seleccionar_padres.py .                                                                                                                                                                                   [100%]
+test\test_crear_codigo_secreto.py .                                                                                                                                                                [ 10%] 
+test\test_crear_individuo.py .                                                                                                                                                                     [ 20%] 
+test\test_crear_poblacion.py .                                                                                                                                                                     [ 30%] 
+test\test_cruzar_padres.py .                                                                                                                                                                       [ 40%] 
+test\test_es_solucion.py ..                                                                                                                                                                        [ 60%] 
+test\test_evaluar_fitness.py .                                                                                                                                                                     [ 70%] 
+test\test_mutar_individuo.py .                                                                                                                                                                     [ 80%] 
+test\test_seleccionar_padres.py ..                                                                                                                                                                 [100%] 
 
-=================================================================================================== 9 passed in 0.05s ====================================================================================================
+========================================================================================== 10 passed in 0.06s =========================================================================================== 
 ```
 
 
@@ -261,21 +271,17 @@ Tambiém se utilizó Copilot y ChatGPT como guía y sugerencia puntual para reco
 La ejecución en consola permite visualizar cómo la población de individuos evoluciona hasta encontrar la solución, y la experiencia adquirida durante el desarrollo, incluyendo la resolución de dificultades iniciales, contribuyó significativamente al aprendizaje.
 
 # Posibles Mejoras 
-
-* Mejorar la diversidad genética de la población  
+* Implementar estrategias para evitar estancamiento evolutivo cuando el fitness no mejora durante varios intentos. 
 * Añadir interfaz gráfica o web para visualización del juego.
-* Implementar estrategias para evitar estancamiento evolutivo cuando el fitness no mejora durante varios intentos.
+* Mejorar la diversidad genética de la población.
+
 
 
 # Dificultades 
 
 * Comprender la lógica del algoritmo genético como principiante.
 
-* Manejo de importaciones relativas y modularización en Python.
-
 * Implementación y comprensión de tests unitarios.
-
-
 
 
 A pesar de las dificultades, este proyecto permitió consolidar conocimientos de Python, algoritmos genéticos y pruebas unitarias, preparando el camino para futuros proyectos más complejos. 
