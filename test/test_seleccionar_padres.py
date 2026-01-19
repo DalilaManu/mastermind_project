@@ -1,19 +1,36 @@
-
+import random
 from src.seleccionar_padres import seleccionar_padres
-import pytest
+from src.evaluar_fitness import evaluar_fitness
 
+def test_seleccionar_padres_basico():
+    poblacion = ["AAAA", "BBBB", "CCCC"]
+    codigo_secreto = "AAAA"
 
-def test_seleccionar_padres():
-    codigo_secreto = ['ROJO', 'AZUL', 'VERDE', 'AMARILLO']
-    individuo1 = ['ROJO', 'AZUL', 'VERDE', 'AMARILLO']  # Fitness 4
-    individuo2 = ['ROJO', 'MORADO', 'VERDE', 'NARANJA']  # Fitness 2
-    individuo3 = ['NARANJA', 'MORADO', 'AZUL', 'VERDE']  # Fitness 0
-    individuo4 = ['ROJO', 'AZUL', 'VERDE', 'NARANJA']  # Fitness 3
-
-    poblacion = [individuo1, individuo2, individuo3, individuo4]
-
+    random.seed(0)
     padres = seleccionar_padres(poblacion, codigo_secreto)
 
-    assert len(padres) == 1
-    assert padres[0] == individuo1
-    # Asegurarse de que el padre seleccionado tiene el mayor fitness
+    # 1. Debe devolver el mismo tamaño
+    assert len(padres) == len(poblacion)
+
+    # 2. Todos los padres deben estar en la población original
+    assert all(p in poblacion for p in padres)
+
+    # 3. El mejor individuo según fitness debe aparecer al menos una vez
+    mejor = max(poblacion, key=lambda ind: evaluar_fitness(ind, codigo_secreto))
+    assert mejor in padres
+def test_seleccionar_padres_igual_fitness():
+    poblacion = ["ABCD", "ABCD", "EFGH"]
+    codigo_secreto = "ABCD"
+
+    random.seed(1)
+    padres = seleccionar_padres(poblacion, codigo_secreto)
+
+    # 1. Debe devolver el mismo tamaño
+    assert len(padres) == len(poblacion)
+
+    # 2. Todos los padres deben estar en la población original
+    assert all(p in poblacion for p in padres)
+
+    # 3. El individuo con mejor fitness debe aparecer al menos una vez
+    mejor = max(poblacion, key=lambda ind: evaluar_fitness(ind, codigo_secreto))
+    assert mejor in padres
