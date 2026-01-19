@@ -90,7 +90,7 @@ python main.py
 - El programa generará un código secreto y aplicará un algoritmo genético para encontrarlo en un máximo de intentos. Se mostrará en consola la evolución del fitness y si la solución fue encontrada o no.
 - Ejemplo de salida en consola:
 ```bash
-Código secreto generado: ['🟠', '🟡', '🟣', '🟢'] ¡Comienza el juego!
+Código secreto generado: 🟠, 🟡, 🟣, 🟢 ¡Comienza el juego!
 
 Intento 1:
 individuo: 🟠 🟡 🟣 🔴 | Fitness: 3
@@ -111,14 +111,16 @@ Mejor individuo: 🟠 🟡 🟣 🟢 | Fitness: 4
 
 
 # Metodologia
-- Se utilizó un enfoque básico de algoritmo genético:
+ Durante la práctica, se intentó aplicar TDD (Desarrollo guiado por pruebas), pero se encontraron dificultades para mantener este enfoque de manera estricta al trabajar con los diferentes módulos del algoritmo genético. En los módulos finales se procuró adoptar TDD, aunque el proceso general se realizó combinando desarrollo seguido de pruebas.
 
-1. Crear poblácion inicial de indivíduos aleatórios.
-2. Evaluar fitness de cada indivíduo (número de colores correctos en posición correcta).
-3. Seleccionar los individuos con mejor fitness como padres. Se aplicó un elitismo parcial en esta selección para asegurar que los mejores individuos influyeran en la nueva población.
-4. Cruzar y mutar para generar nueva población.
-5. Repetir hasta encontrar la solución o alcanzar el límite de intentos.
-- No se utilizaron frameworks externos para la lógica del juego; todo se implementó en Python estándar.
+El proceso seguido fue:
+
+- Diseño de módulos: se definió la estructura, responsabilidades y la interacción entre los módulos del algoritmo genético.
+
+- Pruebas unitarias: se crearon tests con Pytest para verificar el correcto funcionamiento de cada módulo y detectar errores durante la integración.
+
+- Desarrollo e integración: se escribió la lógica del algoritmo genético y se conectaron los módulos poco a poco, usando los tests para mejorar el código.
+
 
 # Descripción Técnica 
 El proyecto se encuentra en un algoritmo genético simple:
@@ -222,22 +224,24 @@ test\test_seleccionar_padres.py .                                               
 
 # Análisis del tiempo invertido
 
-Para el seguimiento del tiempo dedicado al proyecto se utilizó **WakaTime**, una herramienta de medición automática de actividad en el editor de código.
+Para el seguimiento del tiempo dedicado al proyecto se utilizó **WakaTime**.
+
+Según los datos globales del proyecto registrados por WakaTime, el tiempo total invertido fue de aproximadamente **27 horas**.
 
 <p aling="center">
   <img src="images/wakatimeatualizado.png" alt="Análisis de tiempo en WakaTime" width="800">
 </p>
 
-Según los datos globales del proyecto registrados por WakaTime, el tiempo total invertido fue de aproximadamente **27 horas**.
 
-La información visual presentada corresponde a la actividad registrada **durante los últimos 7 días**, período en el cual se reflejan las sesiones finales de desarrollo y documentación del proyecto. 
 
-En ese período reciente, el tiempo se distribuyó principalmente en:
+Además, se incorporó una visualización que muestra el tiempo invertido en cada archivo durante los últimos 7 días, correspondiente a la fase final del proyecto, cuando se realizaron ajustes, documentación y validación del algoritmo.
+<p aling="center">
+  <img src="images/distribuciontiempo.png" alt="Distribución del tiempo" width="800">
+</p>
 
-- **Markdown:** redacción y ajustes de la documentación del proyecto.
-- **Python:** desarrollo y refinamiento de la lógica del algoritmo genético y pruebas.
-- **Editor utilizado:** Visual Studio Code.
+Los archivos README.md y main.py concentraron más tiempo, reflejando la documentación y consolidación de la lógica del juego.
 
+Los archivos de tests evidencian que se dedicó tiempo a asegurar que el juego funcionara correctamente, comprobando que cada módulo cumpliera su función y que el algoritmo resolviera el código secreto como se esperaba.
 
 
 
@@ -260,7 +264,7 @@ La ejecución en consola permite visualizar cómo la población de individuos ev
 
 * Mejorar la diversidad genética de la población  
 * Añadir interfaz gráfica o web para visualización del juego.
-* Evitar estancamiento evolutivo (el fitness no mejora durante vários intentos)
+* Implementar estrategias para evitar estancamiento evolutivo cuando el fitness no mejora durante varios intentos.
 
 
 # Dificultades 
