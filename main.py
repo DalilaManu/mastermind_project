@@ -15,7 +15,7 @@ def convertir_a_emojis(codigo_secreto):
 def main():
     # Crear el código secreto y la población inicial
     codigo_secreto = crear_codigo_secreto() 
-    print("Código secreto generado:", convertir_a_emojis(codigo_secreto), "¡Comienza el juego!")
+    print("Código secreto generado:", " ".join(convertir_a_emojis(codigo_secreto)), "¡Comienza el juego!")
 
 
     # Crear población inicial
@@ -30,7 +30,7 @@ def main():
         print(f"\nIntento {intentos}:")
 
         
-        #Seleccionar los mejores individuos como padres
+    
         padres = seleccionar_padres(poblacion, codigo_secreto) 
           
         #Crear nueva población a partir de los padres
